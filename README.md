@@ -18,14 +18,20 @@ Below are the resources used to get me started:
 
 1. Install Docker
 2. Install Minikube (brew install minikube)
-    2.1. Start Minikube (minikube start)
+2.1. Start Minikube (minikube start)
 3. Create the Flask app
-    3.1. Create the requirements.txt file for Flask (echo 'flask' >> /your/project/app/requirements.txt)
+3.1. Create the requirements.txt file for Flask (echo 'flask' >> /your/project/app/requirements.txt)
 4. Create the Dockerfile in your App's root directory
-5. Build the Docker image for the app
-    5.1. docker build -t "docker-app-name" . #Run this command in the directory where the Dockerfile is located
-6. Access your app
-    6.1. minikube service flask-service #flask-service should match the name of the service in service.yaml
+5. Use Minikube Docker Daemon and build the Docker image for the app
+5.1. eval $(minikube docker-env)
+5.2 docker build -t "docker-app-name" . #Run this command in the directory where the Dockerfile is located
+6. Create both deployment.yaml and service.yaml
+6.1 Apply Kubernetes manifest
+6.1.1 kubectl apply -f deployment.yaml
+6.1.2 kubectl apply -f service.yaml
+7. Access your app
+7.1. minikube service flask-service #flask-service should match the name of the service in service.yaml
+7.1.2 Make sure your container is running (kubectl get pods, kubectl logs <pod_ID> if you've got any issue)
 
 
 ## To Do
