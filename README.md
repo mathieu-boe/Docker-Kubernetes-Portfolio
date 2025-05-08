@@ -43,4 +43,4 @@ Below are the resources used to get me started:
 
 ## To Go Further
 
-- [] Deploy the app in AWS using AWS EKS
+- [ ] Deploy the app in AWS using AWS EKS
